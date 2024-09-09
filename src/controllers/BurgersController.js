@@ -2,9 +2,9 @@ import BaseController from "../utils/BaseController.js";
 
 export class BurgersController extends BaseController {
   constructor() {
-    super()
+    super('api/burgers')
     this.router
-      .get('test', this.getTest)
+      .get('/test', this.getTest)
 
   }
 
