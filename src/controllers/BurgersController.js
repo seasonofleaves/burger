@@ -1,17 +1,19 @@
 import BaseController from "../utils/BaseController.js";
+import { burgersService } from "../services/BurgersService.js";
 
 export class BurgersController extends BaseController {
   constructor() {
     super('api/burgers')
     this.router
-      .get('/test', this.getTest)
+      .get('/menu', this.getBurgers)
 
   }
 
 
-  async getTest(request, response, next) {
+  async getBurgers(request, response, next) {
     try {
-      response.send('Test Success!')
+      const burgers = await burgersService.getBurgers()
+      response.send(burgers)
     } catch (error) {
       next(error)
     }
